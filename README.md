@@ -2,8 +2,6 @@
 
 Build a local OpenResearch Stack (MediaWiki &amp; extensions) with Docker.
 
-> This repository is for testing purpose and will be moved to a final location at a later point in time.
-
 ## Project structure
 
 ### `docker-compose.yml`
