@@ -5,12 +5,12 @@
 //////////////////////////////////////////
 
 ## -------- Elastica --------
-wfLoadExtension( "Elastica" );
+wfLoadExtension("Elastica");
 ## ======== Elastica ========
 
 ## -------- CirrusSearch --------
-wfLoadExtension( "CirrusSearch" );
-$wgCirrusSearchServers = [$wgNetworkEnvironment[ 'ELASTICSEARCH_HOST' ] ?? "127.0.0.1" ];
+wfLoadExtension("Cirrussearch");
+$wgCirrusSearchServers = [$wgNetworkEnvironment['ELASTICSEARCH_HOST'] ?? "127.0.0.1"];
 $wgSearchType = "CirrusSearch";
 $wgCirrusSearchPrefixSearchStartsWithAnyWord = true;
 ## ======== CirrusSearch ========
@@ -20,7 +20,16 @@ $wgCirrusSearchPrefixSearchStartsWithAnyWord = true;
 //////////////////////////////////////////
 
 ## -------- VisualEditor --------
-wfLoadExtension( "VisualEditor" );
+wfLoadExtension("VisualEditor");
+
+# Access Parsoid REST API via localhost; among others, this is bypassing an issue with
+# self-signed certificates when accessing Parsoid via public URL
+$wgVisualEditorParsoidAutoConfig = false;
+wfLoadExtension('Parsoid', $IP . '/vendor/wikimedia/parsoid/extension.json');
+$wgVirtualRestConfig['modules']['parsoid'] = [
+    'url' => 'http://localhost' . $wgScriptPath . '/rest.php',
+    'forwardCookies' => 'true',
+];
 ## ======== VisualEditor ========
 
 //////////////////////////////////////////
@@ -32,7 +41,7 @@ wfLoadExtension( "VisualEditor" );
 wfLoadExtension( 'Bootstrap' );
 wfLoadSkin( 'chameleon' );
 $wgDefaultSkin="chameleon";
-$egChameleonLayoutFile= __DIR__ . "/skins/chameleon/layouts/fixedhead.xml";
+$egChameleonLayoutFile= $IP . "/skins/chameleon/layouts/fixedhead.xml";
 ## ======== Chameleon ========
 
 ## -------- AdminLinks --------
@@ -71,7 +80,7 @@ wfLoadExtension( "CSS" );
 ## ======== CSS ========
 
 ## -------- DateDiff --------
-require_once( "$IP/extensions/DateDiff/DateDiff.php" );
+wfLoadExtension( "DateDiff" );
 ## ======== DateDiff ========
 
 ## -------- DisplayTitle --------
@@ -142,7 +151,7 @@ wfLoadExtension( "NativeSvgHandler" );
 ## ======== NativeSvgHandler ========
 
 ## -------- NumberFormat --------
-require_once( "$IP/extensions/NumberFormat/NumberFormat.php" );
+wfLoadExtension( "NumberFormat" );
 ## ======== NumberFormat ========
 
 ## -------- OpenLayers --------
@@ -218,7 +227,7 @@ wfLoadExtension( "SemanticResultFormats" );
 ## ======== SemanticResultFormats ========
 
 ## -------- SimpleTooltip --------
-require_once( "$IP/extensions/SimpleTooltip/SimpleTooltip.php" );
+# require_once( "$IP/extensions/SimpleTooltip/SimpleTooltip.php" );
 ## ======== SimpleTooltip ========
 
 ## -------- TitleIcon --------

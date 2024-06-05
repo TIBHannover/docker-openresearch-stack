@@ -1,0 +1,13 @@
+Enable "Gallery" for Form Freetext
+https://wiki.gesinn.it/wiki/Issue:3054
+
+--- extension.json.orig	2022-07-05 16:42:29.127108500 +0200
++++ extension.json	2022-07-05 16:42:38.662908400 +0200
+@@ -48,6 +48,7 @@
+ 				"ext.visualEditor.mwimage",
+ 				"ext.visualEditor.mwlink",
+ 				"ext.visualEditor.mwtransclusion",
++				"ext.visualEditor.mwgallery",
+ 				"oojs-ui.styles.icons-editing-advanced"
+ 			]
+ 		},

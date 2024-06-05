@@ -1,41 +1,60 @@
+show-current-target = @echo; echo "======= $@ ========"
+
+.PHONY: all
+all:
+
+compose = docker compose $(COMPOSE_ARGS)
+compose-run = $(compose) run --rm
+compose-exec = $(compose) exec -T
+compose-cp = docker compose cp
+wiki-exec = $(compose-exec) wiki
+
+# ======== Build ========
+
 .PHONY: build
 build:
 	docker build \
 	  --tag ghcr.io/gesinn-it-pub/openresearch-stack:dev \
 	  ./context
 
-.PHONY: sqlite-up
-sqlite-up:
-	docker-compose up -d
+# ======== Run ========
 
-.PHONY: mysql-up
-mysql-up:
-	MYSQL_HOST=mysql docker-compose --profile mysql up -d
+.PHONY: up
+up:
+	$(show-current-target)
+	$(compose) up -d
+
+.PHONY: wait-for-wiki
+wait-for-wiki:
+	$(show-current-target)
+	$(compose-run) wait-for-wiki
 
 .PHONY: show-status
 show-status:
-	docker-compose ps
+	$(show-current-target)
+	$(compose) ps
 
 .PHONY: show-logs
 show-logs:
-	docker-compose logs -f || exit 0
+	docker compose logs -f || exit 0
 
 .PHONY: stop
 stop:
-	docker-compose stop
+	$(show-current-target)
+	$(compose) stop
 
 .PHONY: down
 down:
-	docker-compose down --volumes --remove-orphans
+	$(show-current-target)
+	$(compose) down
 
-.PHONY: backstop-test
-backstop-test:
-	docker-compose run --rm backstop test
+.PHONY: destroy
+destroy:
+	$(show-current-target)
+	$(compose) down --volumes --remove-orphans
 
-.PHONY: clean
-clean: down
-	rm -rf data
-
+# ======== Develop ========
 .PHONY: bash
 bash:
+	$(show-current-target)
 	$(compose) exec wiki bash
