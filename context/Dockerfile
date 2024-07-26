@@ -166,8 +166,6 @@ RUN \
     #
     ### ExternalData
     get-github-extension.sh ExternalData 3.3 && \
-    # TODO: the following patch was created for 3.0. Do we still need it?
-    #	patch.sh extensions/ExternalData/sql/ExternalData.sql
     #
     #
     ### IDProvider
