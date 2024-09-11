@@ -49,7 +49,7 @@ RUN \
 	docker-php-ext-install gd zip
 
 # add /build-tools and /tools
-RUN curl -LJ https://github.com/gesinn-it-pub/docker-mediawiki-tools/archive/refs/tags/3.0.0.tar.gz \
+RUN curl -LJ https://github.com/gesinn-it-pub/docker-mediawiki-tools/archive/refs/tags/3.0.1.tar.gz \
 	| tar xzC / --strip-components 1
 
 # override by custom tools
