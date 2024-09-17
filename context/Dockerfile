@@ -48,6 +48,10 @@ RUN \
 	# 2) SemanticResultFormats (phpoffice/phpspreadsheet)
 	docker-php-ext-install gd zip
 
+### Set permissions (set to 1777 by default at https://github.com/docker-library/php/commit/3dc959846f1d44d6c3200f657dee762885847a2c)
+### Required to support symlink the long path to short path "wiki-xxx -> ."
+RUN chmod 755 /var/www/html
+
 # add /build-tools and /tools
 RUN curl -LJ https://github.com/gesinn-it-pub/docker-mediawiki-tools/archive/refs/tags/3.0.1.tar.gz \
 	| tar xzC / --strip-components 1
