@@ -248,7 +248,7 @@ RUN \
     #
     #
     ### SemanticMediaWiki
-    composer-require.sh mediawiki/semantic-media-wiki 4.1.3 && \
+    composer-require.sh mediawiki/semantic-media-wiki 4.2.0 && \
     #
     #
     ### SemanticCompoundQueries
