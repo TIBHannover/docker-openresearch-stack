@@ -260,8 +260,8 @@ RUN \
     get-github-extension.sh SemanticDependencyUpdater 4.0.0 gesinn-it/SemanticDependencyUpdater && \
     #
     #
-    ### SemanticExtraSpecialProperties (2024-05-24)
-    composer-require.sh mediawiki/semantic-extra-special-properties 3.0.5 && \
+    ### SemanticExtraSpecialProperties (2025-03-10)
+    composer-require.sh mediawiki/semantic-extra-special-properties 4.0.0 && \
     #
     #
     ### SemanticResultFormats
