@@ -46,15 +46,14 @@ RUN \
 	#
 	# 1) QRLite (PNG)
 	# 2) SemanticResultFormats (phpoffice/phpspreadsheet)
-	docker-php-ext-install gd zip
-
-### Set permissions (set to 1777 by default at https://github.com/docker-library/php/commit/3dc959846f1d44d6c3200f657dee762885847a2c)
-### Required to support symlink the long path to short path "wiki-xxx -> ."
-RUN chmod 755 /var/www/html
-
-# add /build-tools and /tools
-RUN curl -LJ https://github.com/gesinn-it-pub/docker-mediawiki-tools/archive/refs/tags/3.0.1.tar.gz \
-	| tar xzC / --strip-components 1
+	docker-php-ext-install gd zip && \
+    #
+	### Set permissions (set to 1777 by default at https://github.com/docker-library/php/commit/3dc959846f1d44d6c3200f657dee762885847a2c)
+	# Required to support symlink the long path to short path "wiki-xxx -> ."
+	chmod 755 /var/www/html && \
+	#
+	### Add build tools and patches folder
+	curl -LJ https://github.com/gesinn-it-pub/docker-mediawiki-tools/archive/refs/tags/3.3.0.tar.gz | tar xzC / --strip-components 1
 
 # override by custom tools
 ADD tools /tools
@@ -70,9 +69,11 @@ ADD php-settings /usr/local/etc/php/conf.d
 RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/conf.d/10-php.ini" && \
 	chmod 644 /usr/local/etc/php/conf.d/*
 
+### We need to change owner here to allow sync with work volume and vagrant user (being member of www-data group)
 RUN chown -R www-data:www-data \
-    /var/www/html/vendor \
-    /var/www/html/composer.lock
+	/var/www/html/vendor \
+	/var/www/html/composer.lock \
+	/var/www/html/composer.local.json
 
 ######################################
 # install Java                       #
@@ -153,7 +154,7 @@ RUN \
     #
     ### DisplayTitle (2025-01-31)
     # This is the last commit before MW 1.41 is required
-    get-github-extension.sh DisplayTitle 7eee15151bffbc2c74bbf1c0154aeb888b0fcac0 wikimedia/mediawiki-extensions-DisplayTitle && 
+    get-github-extension.sh DisplayTitle 7eee15151bffbc2c74bbf1c0154aeb888b0fcac0 wikimedia/mediawiki-extensions-DisplayTitle && \
     #
     #
     ### Echo (REL1_39 2024-05-13)
@@ -249,8 +250,11 @@ RUN \
     #
     #
     ### SemanticMediaWiki (2025-04-14)
-    composer-require.sh mediawiki/semantic-media-wiki 5.0.1 && \
-    #
+    #composer-require.sh mediawiki/semantic-media-wiki 5.0.1 && \
+    ## temp. use bccedaf220e81bdf0568423abea387948318d586 for https://github.com/SemanticMediaWiki/SemanticMediaWiki/commit/5941613b5ab0f09043fb0a150433d0784dcb2057
+	get-github-extension.sh SemanticMediaWiki bccedaf220e81bdf0568423abea387948318d586 SemanticMediaWiki/SemanticMediaWiki && \
+	COMPOSER=composer.local.json composer config --json --merge extra.merge-plugin.include '["extensions/SemanticMediaWiki/composer.json"]' && \
+	#
     #
     ### SemanticCompoundQueries
     composer-require.sh mediawiki/semantic-compound-queries 3.0.0-beta && \
