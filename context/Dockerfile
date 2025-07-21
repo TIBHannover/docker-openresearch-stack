@@ -266,7 +266,7 @@ RUN \
     #
     ### SemanticResultFormats
     composer-require.sh phpoffice/phpspreadsheet 1.29.0 && \
-    composer-require.sh mediawiki/semantic-result-formats 4.2.1 && \
+    composer-require.sh mediawiki/semantic-result-formats 5.0.0 && \
     #
     #
     ### SimpleTooltip
