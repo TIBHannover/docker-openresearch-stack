@@ -248,8 +248,8 @@ RUN \
     ### ReplaceText (enabled as shipped with MediaWiki)
     #
     #
-    ### SemanticMediaWiki
-    composer-require.sh mediawiki/semantic-media-wiki 4.2.0 && \
+    ### SemanticMediaWiki (2025-04-14)
+    composer-require.sh mediawiki/semantic-media-wiki 5.0.1 && \
     #
     #
     ### SemanticCompoundQueries
