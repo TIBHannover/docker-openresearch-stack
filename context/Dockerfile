@@ -253,11 +253,11 @@ RUN \
     #
     #
     ### SemanticCompoundQueries
-    composer-require.sh mediawiki/semantic-compound-queries 2.2.0 && \
+    composer-require.sh mediawiki/semantic-compound-queries 3.0.0-beta && \
     #
     #
     ### SemanticDependencyUpdater
-    get-github-extension.sh SemanticDependencyUpdater 3.0.3 gesinn-it/SemanticDependencyUpdater && \
+    get-github-extension.sh SemanticDependencyUpdater 4.0.0 gesinn-it/SemanticDependencyUpdater && \
     #
     #
     ### SemanticExtraSpecialProperties (2024-05-24)
