@@ -127,9 +127,9 @@ RUN \
     ### Requires WikiEditor
     #
     #
-	### CirrusSearch (dev-REL1_39)
-	# other approaches to install from extension distributor or from source fails
-	composer-require.sh mediawiki/cirrussearch dev-REL1_39 && \
+    ### CirrusSearch (dev-REL1_39)
+    # other approaches to install from extension distributor or from source fails
+    composer-require.sh mediawiki/cirrussearch dev-REL1_39 && \
     #
     #
     ### CookieWarning (2024-06-03)
@@ -151,21 +151,22 @@ RUN \
     get-github-extension.sh DateDiff 574a03ec520dc2f2efc15bb7135d3d94d86874f1 && \
     #
     #
-    ### DisplayTitle
-    get-github-extension.sh DisplayTitle 4.0.2 && \
+    ### DisplayTitle (2025-01-31)
+    # This is the last commit before MW 1.41 is required
+    get-github-extension.sh DisplayTitle 7eee15151bffbc2c74bbf1c0154aeb888b0fcac0 wikimedia/mediawiki-extensions-DisplayTitle && 
     #
     #
-	### Echo (REL1_39 2024-05-13)
-	get-github-extension.sh Echo 1ca913d35f0540813cb646b622c47fcaadff7af9 && \
+    ### Echo (REL1_39 2024-05-13)
+    get-github-extension.sh Echo 1ca913d35f0540813cb646b622c47fcaadff7af9 && \
     #
     #
-	### EditAccount
-	get-github-extension.sh EditAccount 9cc42c10dcfb878ff7be002758673a2453ccb65f gesinn-it-pub/EditAccount && \
+    ### EditAccount
+    get-github-extension.sh EditAccount 9cc42c10dcfb878ff7be002758673a2453ccb65f gesinn-it-pub/EditAccount && \
     #
     #
     ### Elastica
-	get-extension.sh Elastica https://github.com/gesinn-it/extdist.wmflabs.org/raw/main/dist/extensions/Elastica-REL1_39-f6c979e.tar.gz && \
-	COMPOSER=composer.local.json composer config --json --merge extra.merge-plugin.include '["extensions/Elastica/composer.json"]' && \
+    get-extension.sh Elastica https://github.com/gesinn-it/extdist.wmflabs.org/raw/main/dist/extensions/Elastica-REL1_39-f6c979e.tar.gz && \
+    COMPOSER=composer.local.json composer config --json --merge extra.merge-plugin.include '["extensions/Elastica/composer.json"]' && \
     #
     #
     ### ExternalData
@@ -187,8 +188,8 @@ RUN \
     get-github-extension.sh LegalLogin 88cbd83b53501a7f123e22cd81b6f1fd583a22ac && \
     #
     #
-	### Loops (REL1_39 2024-04-01)
-	get-github-extension.sh Loops 02e2937cb2dc4f2b3d206100d598ef2bf4f6619f && \
+    ### Loops (REL1_39 2024-04-01)
+    get-github-extension.sh Loops 02e2937cb2dc4f2b3d206100d598ef2bf4f6619f && \
     #
     #
     ### Maps
@@ -277,28 +278,28 @@ RUN \
     get-github-extension.sh TitleIcon 6.1 && \
     #
     #
-	### UrlGetParameters (2024-05-19)
-	get-github-extension.sh UrlGetParameters cf2712be11210bdcc6c358ccd59935979e91b732 && \
+    ### UrlGetParameters (2024-05-19)
+    get-github-extension.sh UrlGetParameters cf2712be11210bdcc6c358ccd59935979e91b732 && \
     #
     #
-	### UserFunctions (2024-05-19)
-	get-github-extension.sh UserFunctions 1f98fedf1509a8b497834aac9b5830afa2673a21 && \
+    ### UserFunctions (2024-05-19)
+    get-github-extension.sh UserFunctions 1f98fedf1509a8b497834aac9b5830afa2673a21 && \
     #
     #
-	### UserMerge (2024-03-26)
-	# This is the last commit before MW 1.41 is required
-	get-github-extension.sh UserMerge 2b76ea5165cec8c686c097799e1dc4f84c9aad71 && \
+    ### UserMerge (2024-03-26)
+    # This is the last commit before MW 1.41 is required
+    get-github-extension.sh UserMerge 2b76ea5165cec8c686c097799e1dc4f84c9aad71 && \
     #
     #
     ### Variables
     get-github-extension.sh Variables v2.5.3 && \
     #
     #
-	### VEForAll
-	#get-github-extension.sh VEForAll 0.5.2 && \
-	get-github-extension.sh VEForAll 3a71f9016a1a27cc53a69805ba84025f4574688e && \
-	### (Warning: patch applied to this extension, adding ext.visualEditor.mwgallery)
-	patch.sh extensions/VEForAll/extension.json
+    ### VEForAll
+    #get-github-extension.sh VEForAll 0.5.2 && \
+    get-github-extension.sh VEForAll 3a71f9016a1a27cc53a69805ba84025f4574688e && \
+    ### (Warning: patch applied to this extension, adding ext.visualEditor.mwgallery)
+    patch.sh extensions/VEForAll/extension.json
 
 ######################################
 # composer update                    #
