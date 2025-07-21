@@ -165,7 +165,7 @@ RUN \
     #
     #
     ### Elastica
-    get-extension.sh Elastica https://github.com/gesinn-it/extdist.wmflabs.org/raw/main/dist/extensions/Elastica-REL1_39-f6c979e.tar.gz && \
+    get-extension.sh Elastica https://github.com/gesinn-it/extdist.wmflabs.org/raw/main/dist/extensions/Elastica-REL1_39-426e234.tar.gz && \
     COMPOSER=composer.local.json composer config --json --merge extra.merge-plugin.include '["extensions/Elastica/composer.json"]' && \
     #
     #
