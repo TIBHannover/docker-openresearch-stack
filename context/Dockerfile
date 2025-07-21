@@ -188,8 +188,8 @@ RUN \
     get-github-extension.sh LegalLogin 88cbd83b53501a7f123e22cd81b6f1fd583a22ac && \
     #
     #
-    ### Loops (REL1_39 2024-04-01)
-    get-github-extension.sh Loops 02e2937cb2dc4f2b3d206100d598ef2bf4f6619f && \
+    ### Loops (REL1_39 2024-11-25)
+    get-github-extension.sh Loops 83cd81d53ad49d1d46050203d74836f6d3534fea && \
     #
     #
     ### Maps
