@@ -101,7 +101,7 @@ RUN \
     #
     #
     ### AdminLinks
-    get-github-extension.sh AdminLinks 0.6.2 && \
+    get-github-extension.sh AdminLinks 0.6.3 && \
     #
     #
     ### ApprovedRevs
