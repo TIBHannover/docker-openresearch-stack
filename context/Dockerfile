@@ -269,8 +269,11 @@ RUN \
     #
     #
     ### SemanticResultFormats
+    # temp. use 02628215a3a19a0efb8752156e37b34574f1ebfa for latest graph format that includes graphfieldpages option
     composer-require.sh phpoffice/phpspreadsheet 1.29.0 && \
-    composer-require.sh mediawiki/semantic-result-formats 5.0.0 && \
+    # composer-require.sh mediawiki/semantic-result-formats 5.0.0 && \
+    get-github-extension.sh SemanticResultFormats 02628215a3a19a0efb8752156e37b34574f1ebfa SemanticMediaWiki/SemanticResultFormats && \
+    COMPOSER=composer.local.json composer config --json --merge extra.merge-plugin.include '["extensions/SemanticResultFormats/composer.json"]' && \
     #
     #
     ### SimpleTooltip
