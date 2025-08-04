@@ -113,8 +113,8 @@ RUN \
     get-github-extension.sh Arrays ad73997736fe27d31c7f531e494d827ab871d2ff && \
     #
     #
-    ### AutoCreatePage
-    get-github-extension.sh AutoCreatePage 1945b9dbcdb69d63a31df50467451e4b4d3a5290 gesinn-it-pub/AutoCreatePage && \
+	### AutoCreatePage (2024-11-02)
+    get-github-extension.sh AutoCreatePage 34541a8e247e434cb7d11d0b27540713d44f0940 mkroetzsch/AutoCreatePage && \
     #
     #
     ### Extension:CategoryTree (TODO: required?)
@@ -171,7 +171,7 @@ RUN \
     #
     #
     ### ExternalData
-    get-github-extension.sh ExternalData 3.3 && \
+    get-github-extension.sh ExternalData 3.4 && \
     #
     #
     ### IDProvider
