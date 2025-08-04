@@ -53,7 +53,7 @@ RUN \
 	chmod 755 /var/www/html && \
 	#
 	### Add build tools and patches folder
-	curl -LJ https://github.com/gesinn-it-pub/docker-mediawiki-tools/archive/refs/tags/3.3.0.tar.gz | tar xzC / --strip-components 1
+	curl -LJ https://github.com/gesinn-it-pub/docker-mediawiki-tools/archive/refs/tags/3.3.2.tar.gz | tar xzC / --strip-components 1
 
 # override by custom tools
 ADD tools /tools
@@ -98,15 +98,15 @@ USER www-data
 
 RUN \
     ### Chameleon
-    composer-require.sh mediawiki/chameleon-skin 4.3.0 && \
+    composer-require.sh mediawiki/chameleon-skin 5.0.1 && \
     #
     #
     ### AdminLinks
     get-github-extension.sh AdminLinks 0.6.3 && \
     #
     #
-    ### ApprovedRevs
-    get-github-extension.sh ApprovedRevs 2.0 && \
+	### ApprovedRevs (2.1.2 is the last version that supports MW 1.39)
+    get-github-extension.sh ApprovedRevs 2.1.2 && \
     #
     #
     ### Arrays (2024-04-28)
