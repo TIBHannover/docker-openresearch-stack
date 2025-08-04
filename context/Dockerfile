@@ -250,10 +250,10 @@ RUN \
     #
     #
     ### SemanticMediaWiki (2025-04-14)
-    #composer-require.sh mediawiki/semantic-media-wiki 5.0.1 && \
+    composer-require.sh mediawiki/semantic-media-wiki 5.1.0 && \
     ## temp. use bccedaf220e81bdf0568423abea387948318d586 for https://github.com/SemanticMediaWiki/SemanticMediaWiki/commit/5941613b5ab0f09043fb0a150433d0784dcb2057
-	get-github-extension.sh SemanticMediaWiki bccedaf220e81bdf0568423abea387948318d586 SemanticMediaWiki/SemanticMediaWiki && \
-	COMPOSER=composer.local.json composer config --json --merge extra.merge-plugin.include '["extensions/SemanticMediaWiki/composer.json"]' && \
+	# get-github-extension.sh SemanticMediaWiki bccedaf220e81bdf0568423abea387948318d586 SemanticMediaWiki/SemanticMediaWiki && \
+	# COMPOSER=composer.local.json composer config --json --merge extra.merge-plugin.include '["extensions/SemanticMediaWiki/composer.json"]' && \
 	#
     #
     ### SemanticCompoundQueries
