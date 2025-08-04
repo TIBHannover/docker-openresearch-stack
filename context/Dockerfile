@@ -202,7 +202,7 @@ RUN \
     #
     #
     ### Mermaid
-    composer-require.sh mediawiki/mermaid 3.1.0 && \
+    composer-require.sh mediawiki/mermaid 6.0.1 && \
     #
     #
     ### Modern Timeline
