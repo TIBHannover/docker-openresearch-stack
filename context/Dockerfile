@@ -105,7 +105,7 @@ RUN \
     get-github-extension.sh AdminLinks 0.6.3 && \
     #
     #
-	### ApprovedRevs (2.1.2 is the last version that supports MW 1.39)
+    ### ApprovedRevs (2.1.2 is the last version that supports MW 1.39)
     get-github-extension.sh ApprovedRevs 2.1.2 && \
     #
     #
@@ -113,7 +113,7 @@ RUN \
     get-github-extension.sh Arrays ad73997736fe27d31c7f531e494d827ab871d2ff && \
     #
     #
-	### AutoCreatePage (2024-11-02)
+    ### AutoCreatePage (2024-11-02)
     get-github-extension.sh AutoCreatePage 34541a8e247e434cb7d11d0b27540713d44f0940 mkroetzsch/AutoCreatePage && \
     #
     #
@@ -194,7 +194,7 @@ RUN \
     #
     #
     ### Maps
-    composer-require.sh mediawiki/maps 10.2.0 && \
+    composer-require.sh mediawiki/maps 11.0.1 && \
     #
     #
     ### Matomo
