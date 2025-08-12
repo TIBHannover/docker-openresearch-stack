@@ -153,8 +153,8 @@ RUN \
     #
     #
     ### DisplayTitle (2025-01-31)
-    # This is the last commit before MW 1.41 is required
-    get-github-extension.sh DisplayTitle 7eee15151bffbc2c74bbf1c0154aeb888b0fcac0 wikimedia/mediawiki-extensions-DisplayTitle && \
+    # This is the final version before MW 1.41 becomes mandatory, even though the version number has only increased from 4.0.2 to 4.0.3.
+    get-github-extension.sh DisplayTitle 4.0.2 wikimedia/mediawiki-extensions-DisplayTitle && \
     #
     #
     ### Echo (REL1_39 2024-05-13)
