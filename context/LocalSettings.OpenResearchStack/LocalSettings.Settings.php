@@ -17,6 +17,7 @@ $wgPFEnableStringFunctions = true;
 $wgCacheDirectory = "$IP/cache";
 $wgJobRunRate = 0;
 $wgFavicon = "$wgScriptPath/resources/src/mediawiki.openresearch.media/favicon.ico";
+$wgRestrictDisplayTitle = false;
 
 ## Shared memory settings
 $wgMainCacheType = CACHE_MEMCACHED;
