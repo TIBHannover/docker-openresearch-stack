@@ -2,7 +2,8 @@
 
 set -euxo pipefail
 
-service cron start
+## 251201-GEA: we use Ophelia as job scheduler
+# service cron start
 initialize-wiki.sh
 
 apache2-foreground

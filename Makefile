@@ -38,6 +38,16 @@ show-status:
 show-logs:
 	docker compose logs -f || exit 0
 
+.PHONY: show-jobs
+show-jobs:
+	$(show-current-target)
+	$(wiki-exec) php maintenance/showJobs.php --list
+
+.PHONY: show-jobs-count
+show-jobs-count:
+	$(show-current-target)
+	$(wiki-exec) php maintenance/showJobs.php
+
 .PHONY: stop
 stop:
 	$(show-current-target)

@@ -2,8 +2,8 @@
 # docker-openresearch-stack          #
 ######################################
 
-ARG MEDIAWIKI_VERSION=1.39.13
-ARG OPENRESEARCH_STACK_VERSION=1.39.13-005
+ARG MEDIAWIKI_VERSION=1.39.15
+ARG OPENRESEARCH_STACK_VERSION=1.39.15-001
 
 FROM gesinn/mediawiki:${MEDIAWIKI_VERSION}
 
@@ -14,7 +14,7 @@ FROM gesinn/mediawiki:${MEDIAWIKI_VERSION}
 RUN \
 	### install required apt packages
 	#
-	# cron 6)
+	# (cron 6))
 	# ghostscript 1)
 	# gnupg 3)
 	# imagemagick 1)
@@ -31,11 +31,11 @@ RUN \
 	# 3) External_Data PlantUML
 	# 4) php-gd / QRLite (PNG)
 	# 5) SemanticResultFormats (phpoffice/phpspreadsheet)
-	# 6) running jobs
+	# (6) running jobs)
 	# 7) caching
 	# 8) LDAP
 	apt-get update && \
-	apt-get install -y cron ghostscript gnupg imagemagick libpng-dev libzip-dev poppler-utils software-properties-common wget zip zlib1g-dev libldap2-dev && \
+	apt-get install -y ghostscript gnupg imagemagick libpng-dev libzip-dev poppler-utils wget zip zlib1g-dev libldap2-dev && \
 	rm -rf /var/lib/apt/lists/* && \
 	#
 	#
@@ -53,7 +53,7 @@ RUN \
 	chmod 755 /var/www/html && \
 	#
 	### Add build tools and patches folder
-	curl -LJ https://github.com/gesinn-it-pub/docker-mediawiki-tools/archive/refs/tags/3.3.2.tar.gz | tar xzC / --strip-components 1
+	curl -LJ https://github.com/gesinn-it-pub/docker-mediawiki-tools/archive/refs/tags/4.1.0.tar.gz | tar xzC / --strip-components 1
 
 # override by custom tools
 ADD tools /tools
