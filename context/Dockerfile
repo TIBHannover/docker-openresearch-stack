@@ -91,8 +91,8 @@ RUN mkdir -p /etc/apt/keyrings && \
 ######################################
 # install PlantUML                   #
 ######################################
-RUN wget http://netcologne.dl.sourceforge.net/project/plantuml/1.2022.2/plantuml-nodot.1.2022.2.jar -P /usr/share/java && \
-    (cd /usr/share/java && ln -snf plantuml-nodot.1.2022.2.jar plantuml.jar)
+RUN wget https://github.com/plantuml/plantuml/releases/download/v1.2022.2/plantuml-1.2022.2.jar -P /usr/share/java && \
+    (cd /usr/share/java && ln -snf plantuml-1.2022.2.jar plantuml.jar)
 
 USER www-data
 

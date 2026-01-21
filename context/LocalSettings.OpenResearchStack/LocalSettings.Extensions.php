@@ -100,6 +100,20 @@ $wgEchoUseJobQueue = true;
 
 ## -------- ExternalData --------
 wfLoadExtension( "ExternalData" );
+$wgExternalDataSources['plantuml'] = [
+'name'        => 'PlantUML',
+'program url'   => 'https://plantuml.com',
+'version command' => 'java -jar /usr/share/java/plantuml.jar -version',
+'command'     => 'java -jar /usr/share/java/plantuml.jar -tsvg -charset UTF-8 -p',
+'env'       => [ 'LOG4J_FORMAT_MSG_NO_LOOKUPS' => true ],
+'limits'      => [ 'memory' => 0 ],
+'params'      => [ 'uml' ],
+'input'       => 'uml',
+'preprocess'    => 'EDConnectorExe::wikilinks4uml',
+'postprocess'   => 'EDConnectorExe::innerXML',
+'min cache seconds' => 30 * 24 * 60 * 60,
+'tag'       => 'plantuml'
+];
 ## ======== ExternalData ========
 
 ## -------- SyntaxHighlight_GeSHi --------
