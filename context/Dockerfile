@@ -53,7 +53,7 @@ RUN \
 	chmod 755 /var/www/html && \
 	#
 	### Add build tools and patches folder
-	curl -LJ https://github.com/gesinn-it-pub/docker-mediawiki-tools/archive/refs/tags/4.1.0.tar.gz | tar xzC / --strip-components 1
+	curl -LJ https://github.com/gesinn-it-pub/docker-mediawiki-tools/archive/refs/tags/5.0.0.tar.gz | tar xzC / --strip-components 1
 
 # override by custom tools
 ADD tools /tools
