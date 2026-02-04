@@ -261,7 +261,7 @@ RUN \
     #
     #
     ### SemanticDependencyUpdater
-    get-github-extension.sh SemanticDependencyUpdater 4.0.0 gesinn-it/SemanticDependencyUpdater && \
+    get-github-extension.sh SemanticDependencyUpdater 4.2.0 gesinn-it/SemanticDependencyUpdater && \
     #
     #
     ### SemanticExtraSpecialProperties (2025-03-10)
