@@ -257,7 +257,7 @@ RUN \
 	#
     #
     ### SemanticCompoundQueries
-    composer-require.sh mediawiki/semantic-compound-queries 3.0.0-beta && \
+    composer-require.sh mediawiki/semantic-compound-queries 3.0.0 && \
     #
     #
     ### SemanticDependencyUpdater
