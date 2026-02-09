@@ -205,8 +205,8 @@ RUN \
     composer-require.sh mediawiki/mermaid 6.0.1 && \
     #
     #
-    ### Modern Timeline
-    composer-require.sh professional-wiki/modern-timeline 1.2.2 && \
+    ### Modern Timeline (2025-07-07)
+    composer-require.sh professional-wiki/modern-timeline 2.0.0 && \
     #
     #
     ### MultimediaViewer (enabled as shipped with MediaWiki)
