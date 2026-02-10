@@ -137,8 +137,8 @@ RUN \
     get-github-extension.sh CookieWarning 7326d988c373cd5f0fba9a0004cb9da4a8c2ba78 && \
     #
     #
-    ### ConfirmAccount (REL1_39 2024-06-03)
-    get-github-extension.sh ConfirmAccount 284b143df379afeb377d16e5b8ed6b5a3628439f && \
+    ### ConfirmAccount (REL1_39 2025-12-15)
+    get-github-extension.sh ConfirmAccount 15e760d82b4db84f52e2afd2193098aff5155fda && \
     #
     #
     ### ConfirmEdit (enabled as shipped with MediaWiki)
@@ -256,7 +256,7 @@ RUN \
 	# COMPOSER=composer.local.json composer config --json --merge extra.merge-plugin.include '["extensions/SemanticMediaWiki/composer.json"]' && \
 	#
     #
-    ### SemanticCompoundQueries
+    ### SemanticCompoundQueries (2025-09-14)
     composer-require.sh mediawiki/semantic-compound-queries 3.0.0 && \
     #
     #
@@ -272,7 +272,7 @@ RUN \
     # temp. use 02628215a3a19a0efb8752156e37b34574f1ebfa for latest graph format that includes graphfieldpages option
     composer-require.sh phpoffice/phpspreadsheet 1.29.0 && \
     # composer-require.sh mediawiki/semantic-result-formats 5.1.0 && \
-    get-github-extension.sh SemanticResultFormats e53a40d374f394e52379c4d7cce2617b8262cbb0 SemanticMediaWiki/SemanticResultFormats && \
+    get-github-extension.sh SemanticResultFormats be6ad81fa445d5977d5649b64914a98b68e01a22 SemanticMediaWiki/SemanticResultFormats && \
     COMPOSER=composer.local.json composer config --json --merge extra.merge-plugin.include '["extensions/SemanticResultFormats/composer.json"]' && \
     #
     #
