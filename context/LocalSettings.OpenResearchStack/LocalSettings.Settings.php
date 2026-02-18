@@ -31,9 +31,10 @@ $wgJobRunRate = 0;
 ## Shared memory / Object cache (Memcached)
 ## ------------------------------------------------------------------------
 
-$wgMainCacheType    = CACHE_MEMCACHED;
+$wgMainCacheType    = CACHE_DB;				// 260218-GEA: set to CACHE_DB to avoid https://phabricator.wikimedia.org/T417769
 $wgParserCacheType  = CACHE_MEMCACHED;
 $wgMessageCacheType = CACHE_MEMCACHED;
+$smwgMainCacheType  = CACHE_MEMCACHED;
 
 $wgMemCachedServers = [ "127.0.0.1:11211" ];
 
