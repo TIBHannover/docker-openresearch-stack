@@ -133,8 +133,8 @@ RUN \
     composer-require.sh mediawiki/cirrussearch dev-REL1_39 && \
     #
     #
-    ### CookieWarning (2024-06-03)
-    get-github-extension.sh CookieWarning 7326d988c373cd5f0fba9a0004cb9da4a8c2ba78 && \
+    ### CookieWarning (2024-06-17)
+    get-github-extension.sh CookieWarning 12ae098983daf939f0eaac55e6992184f6e5d7e9 && \
     #
     #
     ### ConfirmAccount (REL1_39 2025-12-15)
@@ -148,8 +148,8 @@ RUN \
     get-github-extension.sh CSS 91f9d53fc0c58e2772719cf5e9d0bfd3d12151d4 && \
     #
     #
-    ### DateDiff (2024-05-18)
-    get-github-extension.sh DateDiff 574a03ec520dc2f2efc15bb7135d3d94d86874f1 && \
+    ### DateDiff (2024-06-11)
+    get-github-extension.sh DateDiff a059492b1616c312326a64e47e1766837561d77e && \
     #
     #
     ### DisplayTitle (2025-01-31)
@@ -202,7 +202,7 @@ RUN \
     #
     #
     ### Mermaid
-    composer-require.sh mediawiki/mermaid 6.0.1 && \
+    composer-require.sh mediawiki/mermaid 6.0.2 && \
     #
     #
     ### Modern Timeline (2025-07-07)
@@ -212,8 +212,8 @@ RUN \
     ### MultimediaViewer (enabled as shipped with MediaWiki)
     #
     #
-    ### NativeSvgHandler (2024-05-18)
-    get-github-extension.sh NativeSvgHandler 34c8fef31ad4229dcb845502375af5f84093c73c && \
+    ### NativeSvgHandler (2024-06-12)
+    get-github-extension.sh NativeSvgHandler 35cec08197a8d4bc76e65e66849d520d55394be9 && \
     #
     #
     ### NumberFormat (2024-05-18)
@@ -227,8 +227,8 @@ RUN \
     ### ParserFunctions enabled as shipped with MediaWiki)
     #
     #
-	### PageForms (2025-11-29)
-	get-github-extension.sh PageForms 5.5.1.0-alpha3 gesinn-it/mediawiki-extensions-PageForms && \
+	### PageForms
+	get-github-extension.sh PageForms 1.3.3 gesinn-it/mediawiki-extensions-PageForms && \
     #
     #
     ### TextExtracts (enabled as shipped with MediaWiki)
@@ -242,8 +242,8 @@ RUN \
     # RUN get-github-extension.sh Popups b6eb2627ff3f1fc93060f663efc2f8b302dbb376
     #
     #
-    ### RegexFunctions (2024-05-19)
-    get-github-extension.sh RegexFunctions d04157129d1c0bb85416d90eb16b0ffc5b448adf && \
+    ### RegexFunctions (2024-06-12)
+    get-github-extension.sh RegexFunctions 125ebe751969fda3f1fbc89316bccabaac0655c4 && \
     #
     #
     ### ReplaceText (enabled as shipped with MediaWiki)
@@ -270,7 +270,7 @@ RUN \
     #
     ### SemanticResultFormats (2026-02-10)
     # temp. use 02628215a3a19a0efb8752156e37b34574f1ebfa for latest graph format that includes graphfieldpages option
-    composer-require.sh phpoffice/phpspreadsheet 1.29.0 && \
+    composer-require.sh phpoffice/phpspreadsheet 1.30.1 && \
     composer-require.sh mediawiki/semantic-result-formats 5.2.0 && \
     # get-github-extension.sh SemanticResultFormats be6ad81fa445d5977d5649b64914a98b68e01a22 SemanticMediaWiki/SemanticResultFormats && \
     # COMPOSER=composer.local.json composer config --json --merge extra.merge-plugin.include '["extensions/SemanticResultFormats/composer.json"]' && \
