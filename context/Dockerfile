@@ -228,7 +228,7 @@ RUN \
     #
     #
 	### PageForms
-	get-github-extension.sh PageForms 1.3.3 gesinn-it/mediawiki-extensions-PageForms && \
+	get-github-extension.sh PageForms 1.3.5 gesinn-it/mediawiki-extensions-PageForms && \
     #
     #
     ### TextExtracts (enabled as shipped with MediaWiki)
