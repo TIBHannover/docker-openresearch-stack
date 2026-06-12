@@ -109,8 +109,8 @@ RUN \
     get-github-extension.sh ApprovedRevs 2.1.2 && \
     #
     #
-    ### Arrays (2024-04-28)
-    get-github-extension.sh Arrays ad73997736fe27d31c7f531e494d827ab871d2ff && \
+    ### Arrays (2.2.2)
+    get-github-extension.sh Arrays 2.2.2 gesinn-it-pub/mediawiki-extensions-Arrays && \
     #
     #
     ### AutoCreatePage (2024-11-02)
