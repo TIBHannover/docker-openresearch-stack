@@ -152,9 +152,8 @@ RUN \
     get-github-extension.sh DateDiff a059492b1616c312326a64e47e1766837561d77e && \
     #
     #
-    ### DisplayTitle (2025-01-31)
-    # This is the final version before MW 1.41 becomes mandatory, even though the version number has only increased from 4.0.2 to 4.0.3.
-    get-github-extension.sh DisplayTitle 4.0.2 wikimedia/mediawiki-extensions-DisplayTitle && \
+    ### DisplayTitle (2026-05-21)
+    get-github-extension.sh DisplayTitle 4.2.0 gesinn-it-pub/mediawiki-extensions-DisplayTitle && \
     #
     #
     ### Echo (REL1_39 2024-05-13)
