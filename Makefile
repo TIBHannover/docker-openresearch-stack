@@ -9,6 +9,28 @@ compose-exec = $(compose) exec -T
 compose-cp = docker compose cp
 wiki-exec = $(compose-exec) wiki
 
+# ======== Lint ========
+
+.PHONY: lint
+lint: lint-dockerfile lint-sh lint-compose
+
+.PHONY: lint-dockerfile
+lint-dockerfile:
+	$(show-current-target)
+	docker run --rm -i -v $(PWD)/.hadolint.yaml:/hadolint.yaml --entrypoint hadolint hadolint/hadolint --config /hadolint.yaml -
+
+.PHONY: lint-sh
+lint-sh:
+	$(show-current-target)
+	docker run --rm -v $(PWD):/mnt:ro koalaman/shellcheck-alpine shellcheck \
+	  /mnt/context/tools/startup-container.sh \
+	  /mnt/context/build-tools/composer-update.sh
+
+.PHONY: lint-compose
+lint-compose:
+	$(show-current-target)
+	docker compose -f docker-compose.yml config --quiet
+
 # ======== Build ========
 
 .PHONY: build
