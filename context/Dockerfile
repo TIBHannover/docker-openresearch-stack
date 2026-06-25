@@ -226,8 +226,8 @@ RUN \
     ### ParserFunctions enabled as shipped with MediaWiki)
     #
     #
-	### PageForms (2026-06-23)
-	get-github-extension.sh PageForms 2.0.0 gesinn-it/mediawiki-extensions-PageForms && \
+	### PageForms (2026-06-25)
+	get-github-extension.sh PageForms 2.0.1 gesinn-it/mediawiki-extensions-PageForms && \
     #
     #
     ### TextExtracts (enabled as shipped with MediaWiki)
