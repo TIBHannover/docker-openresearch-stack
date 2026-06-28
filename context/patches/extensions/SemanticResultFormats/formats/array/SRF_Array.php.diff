@@ -1,0 +1,11 @@
+--- extensions/SemanticResultFormats/formats/array/SRF_Array.php.orig
++++ extensions/SemanticResultFormats/formats/array/SRF_Array.php
+@@ -257,7 +257,7 @@
+
+ 		$arrayId = $this->mArrayName;
+
+-		if ( defined( 'ExtArrays::VERSION' ) ) {
++		if ( defined( 'ExtArrays::VERSION' ) || class_exists( 'ExtArrays' ) ) {
+ 			// 'Arrays' extension 2+
+ 			/** ToDo: is there a way to get the actual parser which has started the query? */
+ 			$parser = MediaWikiServices::getInstance()->getParser();

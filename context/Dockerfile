@@ -321,6 +321,11 @@ RUN composer-update.sh
 #    sed -i "s!ApiBase::LIMIT_SML1!100!g" \
 #	    includes/api/Validator/ApiParamValidator.php
 
+### SemanticResultFormats patch
+# SRF_Array.php: fix #arrayprint with modern Arrays extension (ExtArrays::VERSION constant removed in Arrays 2.x)
+# upstream issue: https://github.com/SemanticMediaWiki/SemanticResultFormats/issues/1057
+RUN patch.sh extensions/SemanticResultFormats/formats/array/SRF_Array.php
+
 ######################################
 # add openresearch-stack settings    #
 ######################################
