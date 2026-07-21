@@ -6,23 +6,34 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 
 ## [Unreleased]
 
+## [1.39.17-001] - 2026-07-21
+
 ### Changed
-- deps(mediawiki): bump from 1.39.15 to 1.39.17 ([`ab71d3f`](https://github.com/TIBHannover/docker-openresearch-stack/commit/ab71d3f))
-- deps(docker-mediawiki-tools): bump from 5.0.0 to 5.2.1 ([`ed5a2bb`](https://github.com/TIBHannover/docker-openresearch-stack/commit/ed5a2bb))
-- deps(PageForms): bump from 2.0.1 to 2.1.3 ([`aa129df`](https://github.com/TIBHannover/docker-openresearch-stack/commit/aa129df))
-- deps(PageForms): bump from 2.0.0 to 2.0.1 ([`2f4bd96`](https://github.com/TIBHannover/docker-openresearch-stack/commit/2f4bd96))
-- deps(PageForms): bump from 1.3.5 to 2.0.0 ([`616a280`](https://github.com/TIBHannover/docker-openresearch-stack/commit/616a280))
-- deps(phpspreadsheet): bump from 1.30.1 to 1.30.5 ([`32bf4db`](https://github.com/TIBHannover/docker-openresearch-stack/commit/32bf4db))
-- chore(deps): update EditAccount to 3.1.0 ([`6b1e82d`](https://github.com/TIBHannover/docker-openresearch-stack/commit/6b1e82d))
-- chore(deps): update EditAccount to 3.0.0 ([`67ccb2f`](https://github.com/TIBHannover/docker-openresearch-stack/commit/67ccb2f))
-- chore(deps): update DisplayTitle to 4.2.0 (gesinn-it-pub) ([`0cafbac`](https://github.com/TIBHannover/docker-openresearch-stack/commit/0cafbac))
-- chore(deps): update Arrays to 2.2.2 ([`c842239`](https://github.com/TIBHannover/docker-openresearch-stack/commit/c842239))
+- deps(mediawiki): 1.39.15 → 1.39.17
+  - contains several security fixes (CVE-2025-67475, CVE-2025-67478, CVE-2025-67479, CVE-2025-67480, CVE-2025-67481, CVE-2025-67482) — see MediaWiki 1.39.16/1.39.17 release notes
+  - plus routine submodule updates and translatewiki.net localisation updates across REL1_39
+- deps(docker-mediawiki-tools): 5.0.0 → 5.2.1
+  - fix(initialize-wiki): always clean up LocalSettings.TMP.php on failure
+  - fix(composer-update): use `--prefer-dist` instead of `--prefer-source`
+  - fix(initialize-wiki): disable search updates before update.php — extensions that create wiki pages during update.php queue SearchUpdate jobs, causing ES to auto-create "wiki_content" as a plain index and fail alias registration
+  - feat(install-extensions): add script to install custom MediaWiki extensions from JSON config
+  - fix(run-jobs): support lockfile to pause execution during backup/restore ([#5](https://github.com/gesinn-it-pub/docker-mediawiki-tools/pull/5))
+  - fix(run-jobs): use `-f` instead of `-e` for lockfile check
+  - fix(run-jobs): re-check lockfile between batches, not just on startup
+- deps(PageForms): 2.0.1 → 2.1.3
+  - security fixes: SPARQL injection in "values from wikidata" fields, stored XSS in translatable field tags
+  - several `TypeError`/fatal-error fixes across forms, spreadsheet, maps, and upload handling
+  - large internal refactoring and test-coverage additions (no behavior change)
+- deps(phpspreadsheet): 1.30.1 → 1.30.5
+- chore(deps): update EditAccount to 3.1.0
+- chore(deps): update DisplayTitle to 4.2.0 (gesinn-it-pub)
+- chore(deps): update Arrays to 2.2.2
 
 ### Fixed
-- fix(SemanticResultFormats): patch SRF_Array to detect modern Arrays extension ([`bc5bc77`](https://github.com/TIBHannover/docker-openresearch-stack/commit/bc5bc77))
+- fix(SemanticResultFormats): patch `SRF_Array.php` to detect modern Arrays extension via `class_exists('ExtArrays')` — `ExtArrays::VERSION` constant was removed in Arrays 2.x, causing `#arrayprint` to produce no output
 
 ### CI
-- ci(lint): add make lint target with hadolint, shellcheck, and compose validation ([`abda814`](https://github.com/TIBHannover/docker-openresearch-stack/commit/abda814))
+- ci(lint): add `make lint` target with hadolint, shellcheck, and compose validation
 
 ## [1.39.15-012] - 2026-06-10
 
@@ -166,7 +177,8 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 
 Initial tagged release.
 
-[Unreleased]: https://github.com/TIBHannover/docker-openresearch-stack/compare/1.39.15-012...HEAD
+[Unreleased]: https://github.com/TIBHannover/docker-openresearch-stack/compare/1.39.17-001...HEAD
+[1.39.17-001]: https://github.com/TIBHannover/docker-openresearch-stack/compare/1.39.15-012...1.39.17-001
 [1.39.15-012]: https://github.com/TIBHannover/docker-openresearch-stack/compare/1.39.15-011...1.39.15-012
 [1.39.15-011]: https://github.com/TIBHannover/docker-openresearch-stack/compare/1.39.15-010...1.39.15-011
 [1.39.15-010]: https://github.com/TIBHannover/docker-openresearch-stack/compare/1.39.15-009...1.39.15-010
