@@ -2,7 +2,7 @@
 # docker-openresearch-stack          #
 ######################################
 
-ARG MEDIAWIKI_VERSION=1.39.15
+ARG MEDIAWIKI_VERSION=1.39.17
 ARG OPENRESEARCH_STACK_VERSION=1.39.15-012
 
 FROM gesinn/mediawiki:${MEDIAWIKI_VERSION}
