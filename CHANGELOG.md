@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 
 ## [Unreleased]
 
+### Changed
+- deps(PageForms): bump from 2.1.3 to 2.1.4
+  - fix(values-utils): align SMW property-value namespace prefix with the canonical English name, fixing DisplayTitle lookups for dropdown/combobox/tokens/checkboxes/radiobutton inputs on non-English wikis
+  - internal PSR-4 namespace migration for the form/template domain model (no behavior change; deprecated global class names kept as aliases)
+
 ## [1.39.17-001] - 2026-07-21
 
 ### Changed
