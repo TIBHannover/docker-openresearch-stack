@@ -7,13 +7,18 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 ## [Unreleased]
 
 ### Changed
-- deps(PageForms): bump from 2.1.3 to 2.1.8
+- deps(PageForms): bump from 2.1.3 to 2.1.9
   - fix(values-utils): align SMW property-value namespace prefix with the canonical English name, fixing DisplayTitle lookups for dropdown/combobox/tokens/checkboxes/radiobutton inputs on non-English wikis (2.1.4)
   - fix(autoedit): resolve `IDBAccessObject` against the global namespace so MW 1.39 form submissions with `{num}`/unique-number page-name formulas no longer fatal (2.1.5)
   - fix(autoedit): correct info-tag page-name extraction regex so a trailing `{num}}}}` sequence no longer truncates the formula by one character (2.1.5)
   - fix(values): fall back to namespace-tolerant page-value comparison so legacy localized-namespace-prefixed values still resolve to their SMW DisplayTitle in dropdown/combobox/tokens/checkboxes/radiobutton inputs (2.1.6)
   - internal refactoring: PSR-4 namespace migration for the form/template domain model, plus centralized possible-value matching, page-value comparison, span-class building, and hidden-input generation into shared helpers (no behavior change) (2.1.4, 2.1.6, 2.1.7)
   - fix(FormPrinter): cast a form field's current value to `string` before substituting it into a page-name formula, fixing a `TypeError` that broke `Special:FormEdit` when the field's stored value round-tripped as `int`/`float`/`bool` (2.1.8)
+  - fix(combobox): show a field's clean display title instead of the raw page title (e.g. "Person:Rizzo the Rat"), and stop the value disappearing when the field was clicked (2.1.9)
+  - fix(mapping): fix an error that broke the edit/preview page for forms with a numeric-rating mapping field (e.g. a 1–5 rating scale) (2.1.9)
+  - fix(dropdown/combobox): show a clean label instead of a raw, namespace-prefixed value (e.g. "Category:Foo") when the saved value wasn't among the field's suggested options (2.1.9)
+  - fix(checkboxes/dropdown/listbox/radiobutton): stop losing or hiding a saved value when it wasn't among the field's suggested options — in the radio-button case this could silently blank out the value on save (2.1.9)
+  - fix(remote-autocompletion): actually prevent a large list of values (from a category, namespace, concept, or property) from being fully loaded on every page view (2.1.9)
 
 ## [1.39.17-001] - 2026-07-21
 
