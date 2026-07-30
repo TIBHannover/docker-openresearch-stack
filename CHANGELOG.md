@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 ## [Unreleased]
 
 ### Changed
+- deps(PageForms): bump from 2.1.9 to 2.1.10
 - deps(PageForms): bump from 2.1.3 to 2.1.9
   - fix(values-utils): align SMW property-value namespace prefix with the canonical English name, fixing DisplayTitle lookups for dropdown/combobox/tokens/checkboxes/radiobutton inputs on non-English wikis (2.1.4)
   - fix(autoedit): resolve `IDBAccessObject` against the global namespace so MW 1.39 form submissions with `{num}`/unique-number page-name formulas no longer fatal (2.1.5)
