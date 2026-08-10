@@ -7,6 +7,12 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 ## [Unreleased]
 
 ### Changed
+- deps(PageForms): bump from 2.1.10 to 2.1.11 [`70abc36`](https://github.com/TIBHannover/docker-openresearch-stack/commit/70abc36)
+  - feat: add `PFUtils::ensureParserInitialized()` central helper that initializes a `Parser` only if it hasn't been already, replacing several independently-written inline guards against the same MW 1.42+ typed-property problem
+  - fix(runquery): guard `getOutput()`/`parse()` and `addFormRLModules()` calls with `PFUtils::ensureParserInitialized()` when the singleton hasn't been initialized yet this request, fixing a fatal error on MW 1.42+ (`Parser::$mOutput` is now a typed property) reproducible with `format=leaflet` query results or embedded forms with no `{{{field|...}}}` tags
+  - fix(sfselect): call `clearState()` instead of `resetOutput()` on the freshly constructed `Parser` in `PFSFSelectAPI::createParser()`, part of the same MW 1.42+ typed-property bug family
+  - fix(formfield): show the display title instead of the raw stored page name for a disabled (read-only) `text`, `combobox`, or `textarea` field bound to a Page-type value
+  - fix(show-on-select): fix mutually-exclusive alternative rows staying visible at the same time when the target row's `id`/`data-origID` had been Sanitizer-escaped
 - deps(PageForms): bump from 2.1.9 to 2.1.10
 - deps(PageForms): bump from 2.1.3 to 2.1.9
   - fix(values-utils): align SMW property-value namespace prefix with the canonical English name, fixing DisplayTitle lookups for dropdown/combobox/tokens/checkboxes/radiobutton inputs on non-English wikis (2.1.4)
