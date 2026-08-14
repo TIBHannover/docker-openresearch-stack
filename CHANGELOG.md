@@ -7,6 +7,8 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 ## [Unreleased]
 
 ### Changed
+- deps(JSBreadCrumbs): bump from 1.1.1 to 8ccb1bd5 (last commit of the now-deleted upstream REL1_39 branch)
+  - no functional change; re-pinned to a commit hash since upstream version tags are not reliably in sync with REL branches
 - deps(PageForms): bump from 2.1.11 to 2.1.12
   - fix(formfield): guard global Parser against OT_WIKI/untitled state in mapping template resolution, fixing a `mapping template=` field showing the raw, unresolved template call instead of its label, and an `SF_Select` field's `function=` argument showing raw, unresolved markup instead of its result
 - deps(PageForms): bump from 2.1.10 to 2.1.11 [`70abc36`](https://github.com/TIBHannover/docker-openresearch-stack/commit/70abc36)

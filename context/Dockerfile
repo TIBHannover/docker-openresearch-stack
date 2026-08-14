@@ -181,7 +181,11 @@ RUN \
     #
     #
     ### JSBreadCrumbs
-    get-github-extension.sh JSBreadCrumbs 1.1.1 && \
+    # 8ccb1bd54130392add7e0b04399c1fc8ddf57a68 is the last commit of the upstream REL1_39 branch
+    # (deleted upstream, archived as tag REL1_39 on 2026-06-12) -> last commit compatible with MW 1.39.
+    # Upstream version tags (1.1.0/1.1.1/1.1.2) are not reliably maintained/in sync with REL branches,
+    # so pin the commit id directly instead of a version tag. Verified 2026-08-14.
+    get-github-extension.sh JSBreadCrumbs 8ccb1bd54130392add7e0b04399c1fc8ddf57a68 && \
     #
     #
     ### LegalLogin (2024-05-18)
