@@ -330,6 +330,14 @@ RUN composer-update.sh
 # upstream issue: https://github.com/SemanticMediaWiki/SemanticResultFormats/issues/1057
 RUN patch.sh extensions/SemanticResultFormats/formats/array/SRF_Array.php
 
+### ExternalData patch
+# EDScribunto.php: backport of the CVE-2026-100382 fix (trims Lua argument keys
+# before they reach EDConnectorExe, closing a whitespace-based bypass of the
+# wiki-wide command configuration); upstream fix requires ExternalData 3.7 /
+# MW >= 1.42, this repo is pinned to ExternalData 3.4 (MW 1.39)
+# upstream commit: https://github.com/wikimedia/mediawiki-extensions-ExternalData/commit/6ef8b541
+RUN patch.sh extensions/ExternalData/includes/EDScribunto.php
+
 ######################################
 # add openresearch-stack settings    #
 ######################################

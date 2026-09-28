@@ -1,0 +1,20 @@
+Backport of the CVE-2026-100382 fix (upstream commit 6ef8b541, released in
+ExternalData 3.7). Trims Lua-supplied argument keys before they reach
+EDConnectorBase::getConnector(), closing a whitespace-based bypass of the
+wiki-wide EDConnectorExe configuration (e.g. $wgExternalDataSources[...]['command'])
+reachable via mw.ext.externalData.getProgramData() and other #get_..._data
+Lua bindings. Backported here because this repo is pinned to ExternalData 3.4
+(MediaWiki 1.39); upstream 3.7 requires MediaWiki >= 1.42.
+https://github.com/wikimedia/mediawiki-extensions-ExternalData/commit/6ef8b541
+
+--- EDScribunto.php.orig	2026-09-28 08:29:51.000000000 +0200
++++ EDScribunto.php	2026-09-28 10:29:43.000000000 +0200
+@@ -43,6 +43,8 @@
+ 	 * @return array Depending on success, [ 'values' => [values]/null, 'errors' => null/[error messages] ].
+ 	 */
+ 	private static function fetch( $func, array $arguments, Title $title ): array {
++		// Unlike parser functions, parameter names are not trimmed automatically. Doing it now.
++		$arguments = array_combine( array_map( 'trim', array_keys( $arguments ) ), array_values( $arguments ) );
+ 		$connector = EDConnectorBase::getConnector( $func, $arguments, $title );
+
+ 		$values = null;
