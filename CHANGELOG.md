@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/) and
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [1.39.17-002] - 2026-09-28
 
 ### Fixed
 - fix(ExternalData): backport CVE-2026-100382 fix (unauthenticated remote code execution via untrimmed Lua argument names bypassing the wiki-wide program command configuration)
