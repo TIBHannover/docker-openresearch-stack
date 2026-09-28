@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 
 ## [Unreleased]
 
+### Fixed
+- fix(ExternalData): backport CVE-2026-100382 fix (unauthenticated remote code execution via untrimmed Lua argument names bypassing the wiki-wide program command configuration)
+
 ### Changed
 - deps(JSBreadCrumbs): bump from 1.1.1 to 8ccb1bd5 (last commit of the now-deleted upstream REL1_39 branch)
   - no functional change; re-pinned to a commit hash since upstream version tags are not reliably in sync with REL branches
