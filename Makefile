@@ -24,12 +24,20 @@ lint-sh:
 	$(show-current-target)
 	docker run --rm -v $(PWD):/mnt:ro koalaman/shellcheck-alpine shellcheck \
 	  /mnt/context/tools/startup-container.sh \
-	  /mnt/context/build-tools/composer-update.sh
+	  /mnt/context/build-tools/composer-update.sh \
+	  /mnt/tests/security/check.sh
 
 .PHONY: lint-compose
 lint-compose:
 	$(show-current-target)
 	docker compose -f docker-compose.yml config --quiet
+
+# ======== Security Test ========
+
+.PHONY: security-test
+security-test:
+	$(show-current-target)
+	$(wiki-exec) bash /security-test/check.sh
 
 # ======== Build ========
 
@@ -90,3 +98,24 @@ destroy:
 bash:
 	$(show-current-target)
 	$(compose) exec wiki bash
+
+# ======== CI ========
+
+.PHONY: ci
+ci: lint down build
+	$(show-current-target)
+	$(MAKE) with-ci destroy up wait-for-wiki security-test || { $(MAKE) ci-cleanup; exit 1; }
+	$(MAKE) with-ci destroy
+	$(eval COMPOSE_ARGS = )
+
+.PHONY: ci-cleanup
+ci-cleanup:
+	$(show-current-target)
+	$(MAKE) with-ci destroy
+
+.PHONY: with-ci
+with-ci:
+	$(show-current-target)
+	# ...ignoring docker-compose.override.yml and .env
+	$(eval COMPOSE_ARGS = -p docker-openresearch-stack-ci -f docker-compose.yml --env-file .env.ci)
+	@echo Using docker-compose CI args: $(COMPOSE_ARGS)

@@ -13,6 +13,7 @@ services:
       - *volume_wiki_images
       - ./tests/backstop/backstop_data:/var/www/html/backstop
       - ./tests/http-integration:/http-integration-test
+      - ./tests/security:/security-test:ro
       - /http-integration-test/node_modules/
     environment:
       - WIKI_DOMAIN=${WIKI_DOMAIN:-localhost}
