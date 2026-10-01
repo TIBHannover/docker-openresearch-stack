@@ -6,6 +6,8 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 
 ## [Unreleased]
 
+## [1.39.17-003] - 2026-10-01
+
 ### Changed
 - ci(docker): align linting with docker-mediawiki-core [`952cd4c`](https://github.com/TIBHannover/docker-openresearch-stack/commit/952cd4c)
 - feat(docker): add additional hardening [`7f6b36d`](https://github.com/TIBHannover/docker-openresearch-stack/commit/7f6b36d)
