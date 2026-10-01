@@ -66,9 +66,12 @@ ENV PATH="/tools:/build-tools:${PATH}"
 COPY patches /patches
 
 ### add php-settings (production)
+### and Apache hardening (deny by default, see apache/zz-hardening.conf)
 COPY php-settings /usr/local/etc/php/conf.d
+COPY apache/zz-hardening.conf /etc/apache2/conf-available/zz-hardening.conf
 RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/conf.d/10-php.ini" && \
-	chmod 644 /usr/local/etc/php/conf.d/*
+	chmod 644 /usr/local/etc/php/conf.d/* && \
+	a2enconf zz-hardening
 
 ### We need to change owner here to allow sync with work volume and vagrant user (being member of www-data group)
 RUN chown -R www-data:www-data \

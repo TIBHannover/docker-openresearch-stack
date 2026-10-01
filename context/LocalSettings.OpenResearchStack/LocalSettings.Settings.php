@@ -159,6 +159,13 @@ $wgUseNPPatrol  = false;
 ## ------------------------------------------------------------------------
 
 $wgEnableUploads   = true;
+
+# Serve uploads (and their thumbnails) through img_auth.php so that the wiki
+# permissions apply. Apache denies direct access to /images (zz-hardening.conf).
+# Public wikis opt out with WIKI_PUBLIC_FILES=true.
+if ( getenv( 'WIKI_PUBLIC_FILES' ) !== 'true' ) {
+	$wgUploadPath = "$wgScriptPath/img_auth.php";
+}
 $wgFileExtensions  = [ 'png', 'gif', 'jpg', 'jpeg', 'svg', 'webp' ];
 
 # Required to allow e.g. docx (MIME type mismatches)
