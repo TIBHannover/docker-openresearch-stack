@@ -17,7 +17,7 @@ lint: lint-dockerfile lint-sh lint-compose
 .PHONY: lint-dockerfile
 lint-dockerfile:
 	$(show-current-target)
-	docker run --rm -i -v $(PWD)/.hadolint.yaml:/hadolint.yaml --entrypoint hadolint hadolint/hadolint --config /hadolint.yaml -
+	docker run --rm -i hadolint/hadolint < context/Dockerfile
 
 .PHONY: lint-sh
 lint-sh:

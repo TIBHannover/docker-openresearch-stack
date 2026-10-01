@@ -11,6 +11,7 @@ FROM gesinn/mediawiki:${MEDIAWIKI_VERSION}
 #RUN rm -rf LocalSettings.php /var/www/data
 
 # install required packages
+# hadolint ignore=DL3008,DL3015,DL4006
 RUN \
 	### install required apt packages
 	#
@@ -56,16 +57,16 @@ RUN \
 	curl -LJ https://github.com/gesinn-it-pub/docker-mediawiki-tools/archive/refs/tags/5.3.0.tar.gz | tar xzC / --strip-components 1
 
 # override by custom tools
-ADD tools /tools
-ADD build-tools /build-tools
+COPY tools /tools
+COPY build-tools /build-tools
 RUN chmod +x /build-tools/* /tools/*
 ENV PATH="/tools:/build-tools:${PATH}"
 
 ### apply MediaWiki patches
-ADD patches /patches
+COPY patches /patches
 
 ### add php-settings (production)
-ADD php-settings /usr/local/etc/php/conf.d
+COPY php-settings /usr/local/etc/php/conf.d
 RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/conf.d/10-php.ini" && \
 	chmod 644 /usr/local/etc/php/conf.d/*
 
@@ -80,6 +81,7 @@ RUN chown -R www-data:www-data \
 #
 # - External_Data PlantUML
 ######################################
+# hadolint ignore=DL3008,DL3015,DL3047,DL4001,DL4006
 RUN mkdir -p /etc/apt/keyrings && \
 	wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /etc/apt/keyrings/adoptium.asc && \
 	echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list && \
@@ -91,9 +93,11 @@ RUN mkdir -p /etc/apt/keyrings && \
 ######################################
 # install PlantUML                   #
 ######################################
+# hadolint ignore=DL3003,DL3047,DL4001
 RUN wget https://github.com/plantuml/plantuml/releases/download/v1.2022.14/plantuml-1.2022.14.jar -P /usr/share/java && \
     (cd /usr/share/java && ln -snf plantuml-1.2022.14.jar plantuml.jar)
 
+# hadolint ignore=DL3066
 USER www-data
 
 RUN \
@@ -328,6 +332,7 @@ RUN composer-update.sh
 ### SemanticResultFormats patch
 # SRF_Array.php: fix #arrayprint with modern Arrays extension (ExtArrays::VERSION constant removed in Arrays 2.x)
 # upstream issue: https://github.com/SemanticMediaWiki/SemanticResultFormats/issues/1057
+# hadolint ignore=DL3059
 RUN patch.sh extensions/SemanticResultFormats/formats/array/SRF_Array.php
 
 ### ExternalData patch
@@ -336,17 +341,19 @@ RUN patch.sh extensions/SemanticResultFormats/formats/array/SRF_Array.php
 # wiki-wide command configuration); upstream fix requires ExternalData 3.7 /
 # MW >= 1.42, this repo is pinned to ExternalData 3.4 (MW 1.39)
 # upstream commit: https://github.com/wikimedia/mediawiki-extensions-ExternalData/commit/6ef8b541
+# hadolint ignore=DL3059
 RUN patch.sh extensions/ExternalData/includes/EDScribunto.php
 
 ######################################
 # add openresearch-stack settings    #
 ######################################
-ADD --chown=www-data:www-data LocalSettings.Include.php /var/www/html/.
-ADD --chown=www-data:www-data LocalSettings.OpenResearchStack /var/www/html/LocalSettings.OpenResearchStack
+COPY --chown=www-data:www-data LocalSettings.Include.php /var/www/html/.
+COPY --chown=www-data:www-data LocalSettings.OpenResearchStack /var/www/html/LocalSettings.OpenResearchStack
 
 ######################################
 # set openresearch-stack version     #
 ######################################
+# hadolint ignore=SC2086
 RUN echo $OPENRESEARCH_STACK_VERSION > openresearch-stack-version.txt && \
     echo "\$wgOpenResearchStackVersion = '$OPENRESEARCH_STACK_VERSION';" >> LocalSettings.Include.php
 
@@ -361,5 +368,6 @@ RUN echo $OPENRESEARCH_STACK_VERSION > openresearch-stack-version.txt && \
 # TODO: do we need this?
 # RUN mkdir /data
 
+# hadolint ignore=DL3002,DL3066
 USER root
 CMD [ "startup-container.sh" ]
