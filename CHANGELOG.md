@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/) and
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Changed
+- ci(docker): align linting with docker-mediawiki-core [`952cd4c`](https://github.com/TIBHannover/docker-openresearch-stack/commit/952cd4c)
+- feat(docker): add additional hardening [`7f6b36d`](https://github.com/TIBHannover/docker-openresearch-stack/commit/7f6b36d)
+- test(security): add hardening checks to make ci [`7c32974`](https://github.com/TIBHannover/docker-openresearch-stack/commit/7c32974)
+- ci(github): run make ci on pull requests and pushes [`69afe4f`](https://github.com/TIBHannover/docker-openresearch-stack/commit/69afe4f)
+
 ## [1.39.17-002] - 2026-09-28
 
 ### Fixed
