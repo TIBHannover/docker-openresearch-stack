@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 
 ## [Unreleased]
 
+### Changed
+- deps(EditAccount): bump from 3.1.0 to 3.1.1 [`7f49f4e`](https://github.com/TIBHannover/docker-openresearch-stack/commit/7f49f4e)
+
 ## [1.39.17-003] - 2026-10-01
 
 ### Changed
