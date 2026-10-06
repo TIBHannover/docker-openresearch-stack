@@ -6,8 +6,11 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 
 ## [Unreleased]
 
+## [1.39.17-004] - 2026-10-06
+
 ### Changed
 - deps(EditAccount): bump from 3.1.0 to 3.1.1 [`7f49f4e`](https://github.com/TIBHannover/docker-openresearch-stack/commit/7f49f4e)
+  - fix: error on Special:Contributions that made the page unusable in MediaWiki 1.39; the notice for disabled accounts is displayed again
 
 ## [1.39.17-003] - 2026-10-01
 
