@@ -167,8 +167,8 @@ RUN \
     get-github-extension.sh Echo 1ca913d35f0540813cb646b622c47fcaadff7af9 && \
     #
     #
-    ### EditAccount (2026-06-15)
-    get-github-extension.sh EditAccount 3.1.0 gesinn-it-pub/EditAccount && \
+    ### EditAccount (2026-10-06)
+    get-github-extension.sh EditAccount 3.1.1 gesinn-it-pub/EditAccount && \
     #
     #
     ### Elastica
