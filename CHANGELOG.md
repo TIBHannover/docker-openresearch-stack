@@ -7,6 +7,8 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 ## [Unreleased]
 
 ### Changed
+- deps(PageForms): bump from 2.3.0 to 2.3.1
+  - Fixed forms removing the Semantic MediaWiki properties of a page when opened or saved right after a purge
 - deps(PageForms): bump from 2.1.12 to 2.3.0
   - Fixed `#autoedit` and the `pfautoedit` API removing or corrupting entries of multiple-instance templates, dropping undefined template parameters and reporting false edit conflicts
   - Forms with several fields using the same value source or mapping template now open faster
