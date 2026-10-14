@@ -7,6 +7,9 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 ## [Unreleased]
 
 ### Changed
+- deps(PageForms): bump from 2.3.1 to 2.3.2
+  - Fixed several form and `#autoedit` problems: templates created from forms storing a leading `0:` in field values, permission errors on forms denied by a hook, the "Minor edit" checkbox being ignored, random numbers in page names, and section text being stored twice
+  - Internal classes were split up; the old class names keep working but are deprecated
 - deps(PageForms): bump from 2.3.0 to 2.3.1
   - Fixed forms removing the Semantic MediaWiki properties of a page when opened or saved right after a purge
 - deps(PageForms): bump from 2.1.12 to 2.3.0
