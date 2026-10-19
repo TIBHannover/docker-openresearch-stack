@@ -6,6 +6,12 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 
 ## [Unreleased]
 
+### Changed
+- deps(PageForms): bump from 2.3.2 to 2.3.3
+  - Fixed a page of a category going missing from the values of a `values from category` field when its name equals the display title of another page of the category
+  - Opening a form with a field whose values come from a number property (`values from property`) works again instead of failing with an error
+  - A form tag such as `{{{standard input|save}}}` at the end of a parser function works again: the parser function is evaluated instead of being shown as text
+
 ## [1.39.17-005] - 2026-10-14
 
 ### Changed
