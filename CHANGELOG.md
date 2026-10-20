@@ -7,10 +7,18 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 ## [Unreleased]
 
 ### Changed
-- deps(PageForms): bump from 2.3.2 to 2.3.3
+- deps(PageForms): bump from 2.3.2 to 2.4.0
   - Fixed a page of a category going missing from the values of a `values from category` field when its name equals the display title of another page of the category
   - Opening a form with a field whose values come from a number property (`values from property`) works again instead of failing with an error
   - A form tag such as `{{{standard input|save}}}` at the end of a parser function works again: the parser function is evaluated instead of being shown as text
+  - Date inputs store dates as ISO dates (`2026`, `2026-09`, `2026-09-30`, and `2026-09-30 14:05:00` with a time) whatever the input type, the language of the wiki and `$wgAmericanDates`; formats written before are still understood and rewritten as ISO dates when the form is saved. Templates that take a stored date apart themselves, for example by splitting it at `/`, need to be adjusted
+  - The month dropdown of the `date` and `datetime` inputs shows the month names in the language of the user, and the day, month and year entries follow the date format the user chose in their preferences
+  - The calendar and spreadsheet displays read and write ISO dates and no longer depend on `$wgAmericanDates`
+  - Saving a form no longer drops a date its input cannot show: a year or a month on its own is kept in a text field, and a value that is not a date is kept with a note instead of being emptied
+  - A `datetime` input no longer shows a time of 12:00:00 AM for a stored value that has no time
+  - Values typed into the day, month and year entries are shown as typed when the form is shown again, even if they contain characters such as `<` and `"`
+  - A day that the month does not have, like the 31st of February, is rejected by the `date` input
+  - The calendar display (`display=calendar`) is shown again; before, the calendar stayed empty and saving the form removed all calls of the template from the page
 
 ## [1.39.17-005] - 2026-10-14
 
