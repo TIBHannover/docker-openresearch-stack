@@ -3,9 +3,10 @@
 ######################################
 
 ARG MEDIAWIKI_VERSION=1.39.17
+ARG BASE_IMAGE_TAG=${MEDIAWIKI_VERSION}-php8.2-20261021T1930
 ARG OPENRESEARCH_STACK_VERSION=1.39.17-005
 
-FROM gesinn/mediawiki:${MEDIAWIKI_VERSION}
+FROM gesinn/mediawiki:${BASE_IMAGE_TAG}
 
 # start from scratch
 #RUN rm -rf LocalSettings.php /var/www/data
@@ -321,7 +322,10 @@ RUN \
 ######################################
 # composer update                    #
 ######################################
-RUN composer-update.sh
+# Composer >= 2.9 applies stricter default package checks that reject the pinned
+# versions. These versions are required for MediaWiki 1.39 compatibility, so the
+# check is disabled for this step only.
+RUN COMPOSER_NO_SECURITY_BLOCKING=1 composer-update.sh
 
 ######################################
 # patches                            #
