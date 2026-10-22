@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 ## [Unreleased]
 
 ### Changed
+- deps(php): bump from 8.1 to 8.2
+  - The wiki now runs on PHP 8.2, using a newer base image that also contains security fixes
+  - Custom code, local extensions or settings that rely on PHP 8.1 behaviour should be checked, for example for dynamic properties, which PHP 8.2 reports as deprecated
+  - The build now uses the newer package manager of the PHP 8.2 base image; its stricter default package checks are switched off for the build step, because the pinned package versions are required for MediaWiki 1.39 compatibility
 - deps(PageForms): bump from 2.3.2 to 2.4.0
   - Fixed a page of a category going missing from the values of a `values from category` field when its name equals the display title of another page of the category
   - Opening a form with a field whose values come from a number property (`values from property`) works again instead of failing with an error
