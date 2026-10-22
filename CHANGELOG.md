@@ -6,6 +6,8 @@ This project adheres to [Semantic Versioning](https://semver.org/) and
 
 ## [Unreleased]
 
+## [1.39.17-006] - 2026-10-22
+
 ### Changed
 - deps(php): bump from 8.1 to 8.2
   - The wiki now runs on PHP 8.2, using a newer base image that also contains security fixes
